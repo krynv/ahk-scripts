@@ -13,7 +13,7 @@ Winset, Alwaysontop, , A
 return
 
 ; -----------------------------------------------------
-; Reload script
+; Reload active AHK script on the fly
 ; -----------------------------------------------------
 ^!r::Reload
 return
@@ -53,6 +53,6 @@ return
 ; Open new SAP session
 ; -----------------------------------------------------
 #IfWinActive ahk_class SAP_FRONTEND_SESSION
-^Enter::
+^NumpadEnter::
 Send {CtrlDown}{+}{CtrlUp}
 return
