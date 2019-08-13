@@ -62,7 +62,20 @@ return
 ; -----------------------------------------------------
 #IfWinActive ahk_class SAP_FRONTEND_SESSION
 ^S::
-Send {CtrlDown}{F3}{CtrlUp} ; activate
-Sleep, 500                  ; wait 
-Send {Enter}                ; get rid of the popup box
+Send {ShiftDown}{F1}{ShiftUp} ; pretty print
+Sleep, 2000                   ; wait 
+Send {CtrlDown}{F3}{CtrlUp}   ; activate
+Sleep, 500                    ; wait 
+Send {Enter}                  ; get rid of the popup box
+return
+
+; -----------------------------------------------------
+; Comment and uncomment
+; -----------------------------------------------------
+#IfWinActive ahk_class SAP_FRONTEND_SESSION
+#MaxThreadsPerHotkey, 2
+^/::
+Send % (toggle := !toggle)
+? "{CtrlDown},{CtrlUp}"
+: "{CtrlDown}.{CtrlUp}"
 return
