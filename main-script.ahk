@@ -56,3 +56,13 @@ return
 ^NumpadEnter::
 Send {CtrlDown}{+}{CtrlUp}
 return
+
+; -----------------------------------------------------
+; Save & activate current inactive object (currently used in SE80)
+; -----------------------------------------------------
+#IfWinActive ahk_class SAP_FRONTEND_SESSION
+^S::
+Send {CtrlDown}{F3}{CtrlUp} ; activate
+Sleep, 500                  ; wait 
+Send {Enter}                ; get rid of the popup box
+return
